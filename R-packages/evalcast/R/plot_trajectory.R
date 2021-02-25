@@ -156,7 +156,8 @@ setup_plot_trajectory <- function(predictions_cards,
     }
     if (ip == "epiweek") {
       assert_that(
-        min(truth_data$time_value) < max(truth_data$time_value) - 14,
+        min(truth_data$time_value, na.rm = TRUE) < 
+          max(truth_data$time_value, na.rm = TRUE) - 14,
         msg = paste("For epiweek plots,",
                     "available truth data should span at least",
                     "2 weeks."))
